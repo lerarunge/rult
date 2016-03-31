@@ -1,0 +1,12 @@
+ <div class="post">
+      <% @posts.each do |post|%> 
+          <div class="post-info">
+            <h2><%= post.title %></h2> 
+            <p><%= post.description %></p>
+            <p><%= post.phone %></p>
+            <p><%= post.email %></p>
+            <p><%= post.address %></p>
+            <p><%= link_to "See info", post_path(post) %></p>
+          </div>
+      <% end %> 
+ </div>
