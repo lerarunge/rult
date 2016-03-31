@@ -1,0 +1,24 @@
+ <%= form_for(@post) do |f| %>  
+  <div class="form"> 
+  	<%= f.label :title, "Название услуги или компании" %><br>
+    <%= f.text_field :title, placeholder: "Например, teampact.io" %><br>
+
+    <%= f.label :description, "Описание" %><br>
+    <%= f.text_area :description %><br> 
+
+    <%= f.label :phone, "Телефон" %><br>
+    <%= f.text_field :phone %><br> 
+
+    <%= f.label :email, "Электронная почта" %><br>
+    <%= f.text_field :email %><br>
+
+    <%= f.label :address, "Адрес" %><br>
+    <%= f.text_field :address %><br>
+
+    <%= f.label :url, "Адрес сайта" %><br> 
+    <%= f.text_field :url %>
+  </div> 
+  <div class="actions"> 
+    <%= f.submit "Create" %> 
+  </div> 
+<% end %>
