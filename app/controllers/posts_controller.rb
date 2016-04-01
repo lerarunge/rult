@@ -25,7 +25,9 @@ class PostsController < ApplicationController
 	end
 
 	def update
-		if @post = Post.update(post_params)
+		@post = Post.find(params[:id])
+
+		if @post.update(post_params)
 			redirect_to @post
 		else
 			render :edit
@@ -36,6 +38,11 @@ class PostsController < ApplicationController
 		@post = Post.find(params[:id])
 		@post.destroy
 		redirect_to posts_path
+	end
+
+	private
+	def post_params
+		params.require(:post).permit(:title, :description, :phone, :email, :address, :url)
 	end
 
 end

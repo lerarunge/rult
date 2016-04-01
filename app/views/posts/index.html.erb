@@ -7,6 +7,8 @@
             <p><%= post.email %></p>
             <p><%= post.address %></p>
             <p><%= link_to "See info", post_path(post) %></p>
+            <p><%= link_to "Edit", edit_post_path(post) %></p>
+            <p><%= link_to "Delete adv", post_path(post), method: :delete %></p>
           </div>
       <% end %> 
 
