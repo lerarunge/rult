@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160331193804) do
+ActiveRecord::Schema.define(version: 20160401132616) do
 
   create_table "posts", force: :cascade do |t|
     t.string   "title"
@@ -22,6 +22,18 @@ ActiveRecord::Schema.define(version: 20160331193804) do
     t.string   "url"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "facebook_id"
+    t.string   "login"
+    t.string   "photo"
+    t.string   "oauth_token"
+    t.datetime "oauth_expires_at"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
 
 end
