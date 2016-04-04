@@ -1,4 +1,7 @@
- <%= form_for(@post) do |f| %>  
+<%= render "form" %>
+
+<!-- <%= form_for(@post) do |f| %>  
+
   <div class="form"> 
   	<%= f.label :title, "Название услуги или компании" %><br>
     <%= f.text_field :title, placeholder: "Например, teampact.io" %><br>
@@ -20,5 +23,6 @@
   </div> 
   <div class="actions"> 
     <%= f.submit "Create" %> 
-  </div> 
+  </div>
 <% end %>
+-->
