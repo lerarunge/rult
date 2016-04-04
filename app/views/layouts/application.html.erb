@@ -7,6 +7,10 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+
+ <% if logged_in? %>Welcome, YEP <% end %>
+ <%= flash[:error] %>
+
 <div class="user_nav">
   <% if current_user %>
     Sign in as <strong><%= current_user.name %></strong>

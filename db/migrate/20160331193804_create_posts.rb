@@ -7,6 +7,9 @@ class CreatePosts < ActiveRecord::Migration
       t.string :email
       t.string :address
       t.string :url
+      t.belongs_to :user
+      t.string :author #facebook id of author
+
 
       t.timestamps null: false
     end

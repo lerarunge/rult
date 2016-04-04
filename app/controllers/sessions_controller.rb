@@ -5,6 +5,7 @@ def create
 	session[:user_id] = user.id
 	redirect_to root_url
 #render inline: "<%= debug request.env[\"omniauth.auth\"]%>"
+"d;sfl;dsfk"
 end
 
 def destroy
