@@ -4,5 +4,6 @@
 <p><%= @post.phone %></p>
 <p><%= @post.email %></p>
 <p><%= @post.address %></p>
-
+<% if current_user == @post.user %>
 <p><%= link_to "Delete adv", post_path(@post), method: :delete %></p>
+<% end %>

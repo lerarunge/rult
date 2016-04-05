@@ -4,21 +4,27 @@
   <title>Rult</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+  <%= csrf_meta_tags %> 
 </head>
+
 <body>
-
- <% if logged_in? %>Welcome, YEP <% end %>
- <%= flash[:error] %>
-
-<div class="user_nav">
-  <% if current_user %>
-    Sign in as <strong><%= current_user.name %></strong>
-    <%= link_to "Sign out", signout_path%>
-  <% else %>
-    <%= link_to "Sign in with Facebook", "/auth/facebook"%>
-  <% end %>  
+ 
+<div class="header">
+    <div class="container">
+      <ul class="nav">
+          <% if current_user %>
+            <li class="button"><%= link_to "Create new adv", new_post_path %></li>
+            <li>Sign in as <strong><%= current_user.name %></strong></li>
+            <li class="button"><%= link_to "Sign out", signout_path%></li>
+          <% else %>
+            <li class="button"><%= link_to "Sign in with Facebook", "/auth/facebook"%></li>
+          <% end %>  
+      </ul>
+    </div>
 </div>
+
+ <% if current_user %>Welcome, YEP <% end %>
+ <%= flash[:error] %>
 
 <%= yield %>
 

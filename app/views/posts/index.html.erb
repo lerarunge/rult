@@ -7,10 +7,12 @@
             <p><%= post.email %></p>
             <p><%= post.address %></p>
             <p><%= link_to "See info", post_path(post) %></p>
-            <p><%= link_to "Edit", edit_post_path(post) %></p>
-            <p><%= link_to "Delete adv", post_path(post), method: :delete %></p>
+            <% if post.user == current_user %>
+              <p><%= link_to "Edit", edit_post_path(post) %></p>
+              <p><%= link_to "Delete adv", post_path(post), method: :delete %></p>
+            <%end%>
+            <%= debug post.user %>
           </div>
       <% end %> 
-
-      <p><%= link_to "Create new adv", new_post_path %></p>
+      <%= debug current_user %>
  </div>

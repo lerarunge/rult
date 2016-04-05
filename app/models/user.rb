@@ -10,7 +10,8 @@ has_many :posts
 			photo: auth[:info][:image],
 			login: auth[:info][:urls],
 			oauth_token: auth[:credentials][:token],
-			oauth_expires_at: DateTime.strptime(auth[:credentials][:expires_at].to_s,'%s')}
+			oauth_expires_at: DateTime.strptime(auth[:credentials][:expires_at].to_s,'%s')
+		}
 		@user.save!
 		@user
 	end

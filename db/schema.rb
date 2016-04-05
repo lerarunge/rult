@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(version: 20160401132616) do
     t.string   "email"
     t.string   "address"
     t.string   "url"
+    t.integer  "user_id"
+    t.string   "author"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
@@ -32,6 +34,7 @@ ActiveRecord::Schema.define(version: 20160401132616) do
     t.string   "photo"
     t.string   "oauth_token"
     t.datetime "oauth_expires_at"
+    t.string   "groups"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
   end
