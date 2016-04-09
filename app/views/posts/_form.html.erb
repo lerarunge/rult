@@ -14,27 +14,40 @@
     </div>
   <% end %>
 
-  <div class="form"> 
-  	<%= f.label :title, "Название услуги или компании" %><br>
-    <%= f.text_field :title, placeholder: "Например, teampact.io" %><br>
+  <form>
+    <div class="form-group row">
+    <fieldset class="form-group">     
+  	<%= f.label :title, "Название услуги или компании*" %><br>
+    <%= f.text_field :title, class: "form-control", placeholder: "Например, teampact.io" %><br>
+    </fieldset>
 
-    <%= f.label :description, "Описание" %><br>
-    <%= f.text_area :description %><br> 
+    <fieldset class="form-group"> 
+    <%= f.label :description, "Описание*" %>
+    <%= f.text_area :description, class: "form-control" %>
+    </fieldset>
 
-    <%= f.label :phone, "Телефон" %><br>
-    <%= f.text_field :phone %><br> 
+    <fieldset class="form-group"> 
+    <%= f.label :phone, "Телефон" %>
+    <%= f.text_field :phone, class: "form-control" %>
+    </fieldset>
 
-    <%= f.label :email, "Электронная почта" %><br>
-    <%= f.text_field :email %><br>
+    <fieldset class="form-group">     
+    <%= f.label :email, "Электронная почта" %>
+    <%= f.email_field :email, class: "form-control", placeholder: "Enter email" %>
+    </fieldset>
 
-    <%= f.label :address, "Адрес" %><br>
-    <%= f.text_field :address %><br>
+    <fieldset class="form-group"> 
+    <%= f.label :address, "Адрес" %>
+    <%= f.text_field :address, class: "form-control" %>
+    </fieldset>
 
-    <%= f.label :url, "Адрес сайта" %><br> 
-    <%= f.text_field :url %>
-
-  </div> 
+    <fieldset class="form-group"> 
+    <%= f.label :url, "Адрес сайта" %>
+    <%= f.text_field :url, class: "form-control"%>
+    </fieldset>
+    </div>
+ 
   <div class="actions"> 
-    <%= f.submit %> 
-  </div> 
+    <%= f.submit %> </div>
+  </form> 
 <% end %>

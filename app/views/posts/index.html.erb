@@ -1,18 +1,16 @@
- <div class="post">
+ <div>
       <% @posts.each do |post|%> 
-          <div class="post-info">
-            <h2><%= post.title %></h2> 
-            <p><%= post.description %></p>
-            <p><%= post.phone %></p>
-            <p><%= post.email %></p>
-            <p><%= post.address %></p>
-            <p><%= link_to "See info", post_path(post) %></p>
+          <div class="card card-block">
+            <h4 class="card-title"><%= post.title %></h4> 
+            <p class="card-text"><%= post.description %></p>
+            <p class="card-text"><%= post.phone %></p>
+            <p class="card-text"><%= post.email %></p>
+            <p class="card-text"><%= post.address %></p>
+            <%= link_to "See info", post_path(post), class: "card-link" %>
             <% if post.user == current_user %>
-              <p><%= link_to "Edit", edit_post_path(post) %></p>
-              <p><%= link_to "Delete adv", post_path(post), method: :delete %></p>
+              <%= link_to "Edit", edit_post_path(post), class: "card-link" %>
+              <%= link_to "Delete adv", post_path(post), method: :delete, class: "card-link" %>
             <%end%>
-            <%= debug post.user %>
           </div>
       <% end %> 
-      <%= debug current_user %>
  </div>
