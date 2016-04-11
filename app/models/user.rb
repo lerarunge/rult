@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
 
 has_many :posts
+has_many :photos
 
 	def self.from_omniauth(auth)
 		@user = find_or_initialize_by(facebook_id: auth.uid)

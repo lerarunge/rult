@@ -19,6 +19,11 @@ before_action only: [:edit, :update, :destroy] { require_owner(@post) }
 		@post = Post.create(post_params)
 		@post.user = current_user
 		if @post.save
+			if params[:photos]
+        params[:photos].each { |photo|
+          @post.photos.create(photo: photo)
+        }
+        end
 			redirect_to @post
 		else
 			render :new
@@ -31,6 +36,11 @@ before_action only: [:edit, :update, :destroy] { require_owner(@post) }
 	def update
 
 		if @post.update(post_params)
+			if params[:photos]
+        params[:photos].each { |photo|
+          @post.photos.create(photo: photo)
+        }
+        end
 			redirect_to @post
 		else
 			render :edit
@@ -44,7 +54,7 @@ before_action only: [:edit, :update, :destroy] { require_owner(@post) }
 
 	private
 	def post_params
-		params.require(:post).permit(:title, :description, :phone, :email, :address, :url, :author)
+		params.require(:post).permit(:title, :description, :phone, :email, :address, :url, :author, photos_attributes:[:id,:_destroy])
 	end
 
 	def post_belongs_to_user?(post)

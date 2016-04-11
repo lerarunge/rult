@@ -1,16 +1,30 @@
  <div>
       <% @posts.each do |post|%> 
-          <div class="card card-block">
-            <h4 class="card-title"><%= post.title %></h4> 
-            <p class="card-text"><%= post.description %></p>
-            <p class="card-text"><%= post.phone %></p>
-            <p class="card-text"><%= post.email %></p>
-            <p class="card-text"><%= post.address %></p>
-            <%= link_to "See info", post_path(post), class: "card-link" %>
-            <% if post.user == current_user %>
-              <%= link_to "Edit", edit_post_path(post), class: "card-link" %>
-              <%= link_to "Delete adv", post_path(post), method: :delete, class: "card-link" %>
-            <%end%>
+          <div class="card card-block row">
+            <div class="col-md-2">
+              <% if post.user %>
+                <%= image_tag post.user.photo %>
+                <%= post.user.name %>
+              <% end %>
+<!--               <% post.photos.each do |photo| %>
+                <%= image_tag photo.photo.thumb.url %>
+              <% end %> -->
+            </div>
+            <div class="col-md-8">
+              <h4 class="card-title"><%= post.title %></h4> 
+              <p class="card-text"><%= post.description %></p>
+              <%= link_to nil, post.url, class: 'contacts', target: "_blank" %>
+              <p class="contacts"><%= post.email %></p>
+              <p class="contacts"><%= post.phone %></p>
+              <p class="contacts"><%= post.address %></p>
+              
+              <%= link_to "See info", post_path(post), class: "card-link, author_links" %>
+              
+              <% if post.user == current_user %>
+                <%= link_to "Edit", edit_post_path(post), class: "card-link, author_links" %>
+                <%= link_to "Delete adv", post_path(post), method: :delete, class: "card-link, author_links" %>
+              <%end%>
+            </div>
           </div>
       <% end %> 
  </div>

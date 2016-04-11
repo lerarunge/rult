@@ -1,2 +1,17 @@
 @import "bootstrap";
 
+.contacts{
+  text-transform: lowercase;
+  margin: 5px;
+  font-size: 10px;
+}
+
+.author_links{
+  font-size: 12px;
+  margin: 0px 0px 5px 15px;
+
+}
+
+.card a{
+	text-decoration: underline;
+}
