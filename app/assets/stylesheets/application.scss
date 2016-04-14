@@ -33,10 +33,7 @@
 .author_links{
   font-size: 14px;
   margin-right: 30px;
-};
-
-.card a{
-	text-decoration: underline;
+  text-decoration: underline;
 };
 
 .post-description{
@@ -45,3 +42,21 @@
   margin: 15px 0px 15px 0px;
   text-overflow: ellipsis;
 };
+
+.container{
+	margin-top: 15px;
+}
+
+.photo{
+	display: inline-block;
+	height: 100px;
+	width: 100px;
+    margin: 15px 15px 0px 0px;
+}
+
+.to-all-photos{
+	text-decoration: none;
+	color: grey;
+	margin-bottom: 15px;
+}
+

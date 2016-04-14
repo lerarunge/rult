@@ -1,20 +1,22 @@
- <%= form_for(@post, :html => {:multipart => true}) do |f| %>  
-
-  <% if @post.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(@post.errors.count, "error") %> prohibited
-        this article from being saved:
-      </h2>
-      <ul>
-        <% @post.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
+<div class="container">
+  <div class="row card card-block">
+    <div class="col-md-12" style="background-color: #fff;">
+      <%= form_for(@post, :html => {:multipart => true}) do |f| %>  
+        <% if @post.errors.any? %>
+          <div id="error_explanation">
+            <h2>
+              <%= pluralize(@post.errors.count, "error") %> prohibited
+              this article from being saved:
+            </h2>
+            <ul>
+              <% @post.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
         <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-  <div class="form-group row">
+  <div class="col-md-10">
     <fieldset class="form-group">     
   	  <%= f.label :title, "Название услуги или компании*" %>
       <%= f.text_field :title, class: "form-control", placeholder: "Например, teampact.io" %>
@@ -46,16 +48,30 @@
     </fieldset>
 
     <fieldset class="form-group"> 
-      <%= f.label :url, "Фотографии" %>
+      <%= f.label :url, "Добавить фото:" %>
       <%= file_field_tag "photos[]", type: :photo, multiple: true %>
     </fieldset>
-  </div>
+  
+    <% if @post.photos %>
+         <p>Поставьте галочки, чтобы удалить фотографии.</p>
+      <div class="photo-block">
+      <%= f.fields_for :photos do |photo_form| %>
+        <div class="photo">
+          <%= image_tag photo_form.object.photo.thumb.url %>
+          <%= photo_form.check_box :_destroy%>
+        </div>
+      <% end %>
+      </div>
+    <% end %>
 
-  <%= f.fields_for :photos do |photo_form| %>
-    <%= image_tag photo_form.object.photo.thumb.url %>
-  <% end %>
-
+    <%= f.submit class: "btn btn-success" %>
 
  <% end %>
+  </div>
+
+     </div>
+
+   </div>
+ </div>
 
 
