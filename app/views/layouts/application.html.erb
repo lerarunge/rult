@@ -8,7 +8,7 @@
   <%= csrf_meta_tags %> 
 </head>
 
-<body>
+<body class="body_background">
 
 
 <!-- <div class="header">
@@ -28,7 +28,8 @@
   <%= link_to "ruLT", '/', class: "navbar-brand" %>
     <ul class="nav navbar-nav pull-xs-right">
           <% if current_user %>
-            <%= image_tag current_user.photo, size: "36x36", style: "float:right; margin-left: 15px" %>  
+            <%= image_tag current_user.photo, class: "avatar_header" %>
+            <!-- size: "36x36", style: "float:right; margin-left: 15px" %>   -->
             <li class="nav-item"><%= link_to "Create new adv", new_post_path, class: "btn btn-secondary-outline" %></li>
             <li class="nav-item"><%= link_to "Sign out", signout_path, class: "btn btn-secondary-outline" %></li>
           <% else %>
@@ -41,9 +42,13 @@
 
 <div class="container" style="margin-top: 15px">
 <div class="row">
-  <div class="col-sm-8">
+  <div class="col-md-2">
+  </div>
+  <div class="col-md-8">
     <%= flash[:error] %>
     <%= yield %>
+  </div>
+  <div class="col-md-2">
   </div>
 </div>
 </div>

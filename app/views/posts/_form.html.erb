@@ -53,12 +53,8 @@
 
   <%= f.fields_for :photos do |photo_form| %>
     <%= image_tag photo_form.object.photo.thumb.url %>
-    <%= photo_form.check_box :_destroy%>
   <% end %>
 
-  <div class="actions"> 
-    <%= f.submit %>
-  </div> 
 
  <% end %>
 

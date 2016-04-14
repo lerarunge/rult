@@ -1,17 +1,47 @@
 @import "bootstrap";
 
+.body_background{
+	background: #555;
+};
+
 .contacts{
-  text-transform: lowercase;
-  margin: 5px;
-  font-size: 10px;
+  margin-top: 50px;
+  margin-left: -40px;
+  font-size: 13px;
+  list-style-type: none;
+};
+
+.contacts li{
+   margin-top: 5px;
 }
 
+.avatar{
+ 	border-radius: 50%;
+ 	height: 60px;
+	width: 60px;
+ 	float: center;
+};
+
+.avatar_header{
+	height: 36px;
+	width: 36px;
+	float:right;
+	margin-left: 15px;
+};
+
+//post
 .author_links{
-  font-size: 12px;
-  margin: 0px 0px 5px 15px;
-
-}
+  font-size: 14px;
+  margin-right: 30px;
+};
 
 .card a{
 	text-decoration: underline;
-}
+};
+
+.post-description{
+  overflow: hidden;
+  max-height: 70px;
+  margin: 15px 0px 15px 0px;
+  text-overflow: ellipsis;
+};
