@@ -1,6 +1,7 @@
       <% @posts.each do |post|%> 
           <div class="card card-block row">
             <div class="col-xs-3">
+            <div class="avatar_photo">
                 <% if post.user %>
                   <%= image_tag post.user.photo, class: "avatar" %></br>
                   <%= post.user.name %>
@@ -8,10 +9,11 @@
 <!--               <% post.photos.each do |photo| %>
                 <%= image_tag photo.photo.thumb.url %>
               <% end %> -->
+              </div>
             </div>
             <div class="col-xs-9">
               <h4 class="card-title"><%= post.title %></h4> 
-              <p class="post-description"><%= post.description %></p>
+              <p class="post_description"><%= post.description %></p>
               <div style="float: right;"><%= link_to "Read more", post_path(post), class: "card-link, author_links" %></div>
               <ul class="contacts">    
                 <li><%= link_to nil, post.url, target: "_blank" if post.url %></li>

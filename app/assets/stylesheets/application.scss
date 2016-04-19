@@ -22,6 +22,14 @@
  	float: center;
 };
 
+.avatar_photo{
+	display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    text-align: center;
+}
+
 .avatar_header{
 	height: 36px;
 	width: 36px;
@@ -36,7 +44,7 @@
   text-decoration: underline;
 };
 
-.post-description{
+.post_description{
   overflow: hidden;
   max-height: 70px;
   margin: 15px 0px 15px 0px;
@@ -54,9 +62,4 @@
     margin: 15px 15px 0px 0px;
 }
 
-.to-all-photos{
-	text-decoration: none;
-	color: grey;
-	margin-bottom: 15px;
-}
 
