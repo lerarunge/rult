@@ -1,0 +1,6 @@
+<div class="avatar_photo">
+  <% if post.user %>
+    <%= image_tag post.user.photo, class: "avatar" %></br>
+    <%= post.user.name %>
+  <% end %>
+</div>

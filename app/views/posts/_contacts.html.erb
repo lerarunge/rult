@@ -1,0 +1,6 @@
+  <ul class="contacts">    
+    <li><%= link_to nil, post.url, target: "_blank" if post.url %></li>
+    <li><%= post.try :email %></li>
+    <li><%= post.try :phone %></li>
+    <li><%= post.try :address %></li>
+  </ul>

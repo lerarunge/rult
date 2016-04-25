@@ -9,36 +9,28 @@
 <% end %> -->
 
 <div class="card card-block">
-	<div class="row col-xs-12 to-all-photos">
+	<div class="row col-xs-12 to-all-photos" style="padding-bottom: 20px">
 		<%= link_to "<—— Ко всем объявлениям", posts_path %>
 	</div>
 	<div class="row">
         <div class="col-xs-3">
-            <% if @post.user %>
-	            <%= image_tag @post.user.photo, class: "avatar" %></br>
-                <%= @post.user.name %>
-            <% end %>
+            <%= render "photo", post: @post %>
         </div>
         <div class="col-xs-9">
             <h4 class="card-title"><%= @post.title %></h4> 
             <p><%= @post.description %></p>
                
             <% @post.photos.each do |photo| %>
-                <div class="photo"><%= image_tag photo.photo.thumb.url %></div>
+                <%= link_to photo.photo.url do %>
+                <%= image_tag photo.photo.thumb.url, class: "photo"%>
+                <% end %>
             <% end %>
 
-            <ul class="contacts" style="margin-top: 20px">    
-                <li><%= link_to nil, @post.url, target: "_blank" if @post.url %></li>
-                <li><%= @post.email if @post.email %></li>
-                <li><%= @post.phone if @post.phone %></li>
-                <li><%= @post.address if @post.address %></li>
-            </ul>
-  
+            <div style="margin-top: 0px">    
+				<%= render "contacts", post: @post %>
+            </div>
               
-            <% if @post.user == current_user %>
-                <%= link_to "Edit", edit_post_path(@post), class: "card-link, author_links" %>
-                <%= link_to "Delete adv", post_path(@post), method: :delete, class: "card-link, author_links" %>
-            <%end%>
+			<%= render "actions", post: @post %>
          </div>
      </div>
 </div>
