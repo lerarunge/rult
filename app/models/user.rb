@@ -16,4 +16,8 @@ has_many :photos
 		@user.save!
 		@user
 	end
+
+	def admin?
+		["lerarunge@gmail.com", "kolomeetz@gmail.com"].include?(email) 
+	end
 end

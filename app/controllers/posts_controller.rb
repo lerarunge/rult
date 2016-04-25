@@ -1,4 +1,4 @@
-class PostsController < ApplicationController
+	class PostsController < ApplicationController
 
 before_action :require_user, only: [:new, :edit, :update, :destroy, :create]
 before_action :set_post, only: [:show, :edit, :update, :destroy]
@@ -66,7 +66,7 @@ before_action only: [:edit, :update, :destroy] { require_owner(@post) }
 	end
 
 	def require_owner(post)
-      unless post_belongs_to_user?(post)
+      unless post_belongs_to_user?(post) || current_user && current_user.admin?
         flash[:error] = "ЭТО НЕ ВАШ ПОСТ, НЕ ВАШ!"
         redirect_to posts_path # halts request cycle
       end
